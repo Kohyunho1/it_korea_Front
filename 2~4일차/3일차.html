@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        /* margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto; */
+        /* 20px은 상,하를 의미함 auto는 좌,우를 의미한다. */
+        margin: 20px auto;
+        width: 500px;
+        height: 800px;
+        background-color: rgb(136, 110, 177);
+        /* padding 20px 상,하,좌,우로 20px씩을 주겠다는 의미 */
+        padding: 20px;
+      }
+      .content01 {
+        width: 450px;
+        height: 250px;
+        background-color: darkgreen;
+        border: 1px solid black;
+        margin-bottom: 150px;
+      }
+      .container02 {
+        width: 450px;
+        height: 250px;
+        background-color: darkgreen;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- padding&margin 복습 -->
+    <!-- margin은 좌,우 간격을 auto로 맞출 수 있음. padding은 불가능
+        auto를 하게되면 화면 중앙으로 배치할 수 있음    
+    -->
+
+    <!-- 
+        margin : 1px; // 상 하 좌 우 마진을 1px 설정
+        margin : 1px 2px; // 상 하 1px 좌 우 2px 설정
+        margin : 1px 2px 3px; // 상 1px 좌 우 2px 하 3px
+        margin : 1px 2px 3px 4px; //  상 1px 하 2px 좌 3px 우 4px 설정
+
+        padding : 1px; // 상 하 좌 우 패딩을 1px 설정
+        padding : 1px 2px; // 상 하 1px 좌 우 2px 설정
+        padding : 1px 2px 3px; // 상 1px 좌 우 2px 하 3px
+        padding : 1px 2px 3px 4px; //  상 1px 하 2px 좌 3px 우 4px 설정
+     -->
+    <div class="container">
+      <div class="content01"></div>
+      <div class="content01"></div>
+    </div>
+  </body>
+</html>

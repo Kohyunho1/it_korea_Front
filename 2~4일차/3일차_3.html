@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        height: 200px;
+        background-color: dodgerblue;
+        /* flexible : 유연한 */
+        display: flex;
+        /* justify는 가로축을 의미 */
+        justify-content: space-between;
+      }
+      .container > div {
+        background-color: azure;
+        width: 150px;
+        /* inline-block은 실무에서 사용하지 않는다*/
+        /* display: inline-block; */
+        /* margin: 10px; */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Flex, 실무에서 사용률 1000000000000000000000000000%
+        선생님 생각
+        1. margin, padding
+        2. flex
+        3. position
+        홈페이지 제작 가능!  
+        
+        
+
+        Flex는 복잡한 레이아웃을 간편하게 만들 수 있도록 도와준다.(유튜브, 인스타그램, 페이스북 등)
+        크기와 위치를 동적으로 조절가능하다.(즉, 사이즈 구분없이 자동으로 줄어들고 늘어난다.)
+        이를 통해 다양한 디바이스(핸드폰)와 화면크기에 맞춰 레이아웃을 만들 수 있다.
+    -->
+
+    <div class="container">
+      <!-- div는 기본 세로 배치됨 -->
+      <div>
+        1
+        <img src="img/1.gif" alt="" />
+      </div>
+      <div>
+        2
+        <img src="img/2.gif" alt="" />
+      </div>
+      <div>
+        3
+        <img src="img/3.gif" alt="" />
+      </div>
+      <div>
+        4
+        <img src="img/4.gif" alt="" />
+      </div>
+    </div>
+  </body>
+</html>
