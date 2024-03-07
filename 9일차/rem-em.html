@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    /* html : root 태그(최상부모) */
+    html {
+      font-size: 16px;
+    }
+    .parent {
+      font-size: 15px;
+      color: red;
+    }
+    .child-rem {
+      /* 부모태그 16 * 2 = 32px */
+      font-size: 2rem;
+    }
+    .child {
+      /* 15 * 2 = 30px */
+      /* em은 자기 바로 위 부모 */
+      font-size: 2em;
+    }
+    /* 
+        보통 rem은 사이트 전체 글꼴 크기나 여백을 정의할 때 사용(전역 변수 개념)
+    */
+  </style>
+  <body>
+    <!-- 
+        px
+        *%
+        vw,vh
+        *em,rem
+
+        1.flex
+        2.padding, margin
+        3.position
+     -->
+    <!-- class 이름은 중복이 가능하다.
+        rem : em 하고 기능은 같은, rem에서 r은 root 요소를 의미
+        root : 최상 부모를 의미 = html
+    -->
+    <div class="parent">
+      I`m 15px
+      <div class="child-rem">
+        I`m 32px, as expected
+        <div class="child-rem">I`m 32px, as expected</div>
+      </div>
+
+      <div class="child">I`m 30px, as expected!!!</div>
+    </div>
+  </body>
+</html>

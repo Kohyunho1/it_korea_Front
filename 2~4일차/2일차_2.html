@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        *{
-            /*
+      * {
+        /*
             기본적으로 브라우저가 영역을 일부 차지하고 있기때문에
             아래 작업을 해야한다. 
              */
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        div{
-            /* px(픽셀)은 화면의 가장 작은 단위 */
-            width: 150px;
-            height: 150px;
-            background-color: antiquewhite;
-            border: 1px solid black;
-        }
-        /* box01 이라는 이름을 가진 클래스에 style을 적용 */
-        .box01{
-            background-color: aqua;
-            margin-bottom: 50px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-        .box02{
-            background-color: blueviolet;
-            margin-bottom: 50px;
-            display: inline-block;
-        }
-        .box03{
-            background-color: red;
-            color: white;
-            margin-top: 50px;
-            margin-left: 100px;
-            display: inline-block;
-            
-            /* margin-top: 50px; */
-        }
-        /* box를 분리하는 방법 중 대표적인 방법
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      div {
+        /* px(픽셀)은 화면의 가장 작은 단위 */
+        width: 150px;
+        height: 150px;
+        background-color: antiquewhite;
+        border: 1px solid black;
+      }
+      /* box01 이라는 이름을 가진 클래스에 style을 적용 */
+      .box01 {
+        background-color: aqua;
+        margin-bottom: 50px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .box02 {
+        background-color: blueviolet;
+        margin-bottom: 50px;
+        display: inline-block;
+      }
+      .box03 {
+        background-color: red;
+        color: white;
+        margin-top: 50px;
+        margin-left: 100px;
+        display: inline-block;
+
+        /* margin-top: 50px; */
+      }
+      /* box를 분리하는 방법 중 대표적인 방법
         margin 이라는 것을 사용한다.
 
         margin은 경계선(바깥쪽) 여백을 의미
@@ -57,8 +57,8 @@
         ******maring, padding만 마스터해도 사이트 제작 80% 완료
         */
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- 
         div 태그, 실무에서 10000000000% 사용, div를 모르면 사이트 제작불가
         div는 division(나누다)의 줄임말, 블록 -> 블록들이 모여서 사이트완성
@@ -72,18 +72,21 @@
     
     -->
 
-     <!-- class는 변수명이라고 생각 -->
-    <div class="box01">박스 1번
-        <!-- h2는 div안에 있다 (x)
+    <!-- class는 변수명이라고 생각 -->
+    <div class="box01">
+      박스 1번
+      <!-- h2는 div안에 있다 (x)
              h2는 div(클래스이름 box01)에 자식태그 
         -->
-        <h2>안녕하세요</h2>
+      <h2>안녕하세요</h2>
     </div>
-    <div class="box02">박스 2번
-        <h2>안녕하세요</h2>
+    <div class="box02">
+      박스 2번
+      <h2>안녕하세요</h2>
     </div>
-    <div class="box03">박스 3번
-        <h2>안녕하세요</h2>
+    <div class="box03">
+      박스 3번
+      <h2>안녕하세요</h2>
     </div>
-</body>
+  </body>
 </html>
