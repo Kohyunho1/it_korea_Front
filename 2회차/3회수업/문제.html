@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .section {
+        display: flex;
+      }
+      .item {
+        /* border: 1px solid black; */
+        text-align: left;
+        padding: 25px;
+        flex: 1;
+      }
+      .section div:nth-child(1) {
+        background-color: grey;
+      }
+      .section div:nth-child(2) {
+        background-color: rgb(202, 201, 201);
+      }
+      .section div:nth-child(3) {
+        background-color: rgb(223, 223, 223);
+      }
+      .section div:nth-child(4) {
+        background-color: rgb(233, 233, 233);
+      }
+      @media (max-width: 768px) {
+        .section {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Responsive Four Column Layoyt with Flex</h2>
+      <p>Resize the browser window to see the responsive effect.</p>
+      <div class="section">
+        <div class="item">
+          <h2>Column 1</h2>
+          <p>Some text...</p>
+        </div>
+        <div class="item">
+          <h2>Column 2</h2>
+          <p>Some text...</p>
+        </div>
+        <div class="item">
+          <h2>Column 3</h2>
+          <p>Some text...</p>
+        </div>
+        <div class="item">
+          <h2>Column 4</h2>
+          <p>Some text...</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
