@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        border: 1px solid black;
+        height: 90vh;
+      }
+      .header {
+        border: 1px solid blueviolet;
+        text-align: center;
+      }
+      .section {
+        border: 1px solid black;
+      }
+      .section {
+        display: flex;
+        margin-top: 10px;
+      }
+      .item {
+        flex: 1;
+        text-align: center;
+        padding: 50px;
+      }
+      .section div:nth-child(1) {
+        background-color: blue;
+      }
+      .section div:nth-child(2) {
+        background-color: grey;
+      }
+      .section div:nth-child(3) {
+        background-color: green;
+      }
+      @media (max-width: 800px) {
+        .container {
+          height: 100vh;
+        }
+        .header {
+          height: 50vh;
+        }
+        .section {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Media Queries</h1>
+        <p>Resize the browser window.</p>
+        <p>
+          Make sure you reach the breakpoint at 800px when resizing this frame.
+        </p>
+      </div>
+      <div class="section">
+        <div class="item">
+          <h1>Left Item</h1>
+        </div>
+        <div class="item">
+          <h1>Center Item</h1>
+        </div>
+        <div class="item">
+          <h1>Right Item</h1>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
