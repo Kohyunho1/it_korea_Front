@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .section {
+        display: flex;
+      }
+      .event-menu {
+        position: relative;
+        border: 1px solid black;
+        /* flex: 1; */
+        overflow: hidden;
+      }
+      .section .left {
+        /* flex: 0 0 60%; */
+        width: 60%;
+      }
+      .section .right {
+        /* flex: 0 0 40%; */
+        width: 40%;
+      }
+      .event-menu img {
+        width: 100%;
+        transition: 0.8s;
+      }
+      .event-menu:hover img {
+        transform: scale(1.1);
+      }
+      .menu-intro {
+        /* absolute를 활용해서 이미지 안에 글씨 넣기~! */
+        border: 1px solid red;
+        position: absolute;
+        z-index: 1;
+        top: 60px;
+        left: 30%;
+      }
+      .menu-intro p {
+        font-size: 50px;
+        color: #071f60;
+        font-weight: 900;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="section">
+      <!-- class 이름 추가 -->
+      <div class="event-menu left">
+        <!-- 메뉴 소개글 -->
+        <div class="menu-intro">
+          <p>VARIOUS</p>
+          <p>BEVERAGE</p>
+        </div>
+        <img src="img/main_sec3.jpg" alt="" />
+      </div>
+      <div class="event-menu right">
+        <img src="img/main_sec4.jpg" alt="" />
+      </div>
+    </div>
+  </body>
+</html>
