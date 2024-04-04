@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .order-box {
+        border: 1px solid red;
+        padding: 5px;
+        width: 500px;
+        margin: 50px auto;
+        display: flex;
+        flex-direction: column;
+      }
+      .img-box {
+        width: 300px;
+        height: 200px;
+        border: 1px solid black;
+        margin: 15px auto;
+      }
+      .img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .order-box > div {
+        padding: 1%;
+        margin-top: 10px;
+        border: 1px solid black;
+      }
+      .order-box input {
+        width: 50%;
+        padding: 5px;
+      }
+      h3 {
+        text-align: center;
+      }
+      .order-box button {
+        width: 100%;
+        padding: 5px;
+        cursor: pointer;
+      }
+      .popup {
+        /* display: none : 화면숨기기 */
+        display: none;
+        border: 1px solid black;
+        background-color: yellow;
+        width: 600px;
+        height: 300px;
+        position: absolute;
+        top: 0;
+        left: 40%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="order-box">
+      <div>
+        <h3>연돈 치즈돈까스</h3>
+        <div class="img-box">
+          <img src="don.jpg" alt="" />
+        </div>
+      </div>
+      <div>
+        <label for="num">수량 : </label>
+        <input id="num" type="number" />
+      </div>
+      <div>
+        <label for="price">가격 : </label>
+        <input id="price" type="number" value="12000" disabled />
+      </div>
+      <div>
+        <label for="payment">납부 금액 : </label>
+        <input id="payment" type="number" value="12000" disabled />
+      </div>
+      <div>
+        <!-- order() : 자바스크립트에 정의한 함수 -->
+        <button onclick="order()">주문하기</button>
+      </div>
+    </div>
+
+    <div class="popup">
+      죄송합니다 고객님, 치즈돈까스는 5개이하로 주문해주세요.
+      <div class="img-box">
+        <img src="on.jpg" alt="" />
+      </div>
+      <button onclick="popupClose()">팝업창 닫기</button>
+    </div>
+  </body>
+  <script>
+    //close 함수는 이미 자바스크립트 내부에서 사용중인 함수이기 때문에 사용 불가능(함수 이름 중복 불가능)
+    function popupClose() {
+      var popupElements = document.getElementsByClassName("popup")[0]; //팝업창 요소 가져오기
+      popupElements.style.display = "none"; //팝업창 숨기기
+    }
+    //function : 함수(이벤트)
+    function order() {
+      //1. 수량에 맞게 치즈돈까스 금액나오기
+      var count = 0; //치즈돈까스 수량 변수
+      //. : 접근을 의미함
+
+      count = Number(document.getElementById("num").value); //수량 가져오기
+      console.log("주문 수량 : " + count);
+      var cheesPorkCutlet = Number(document.getElementById("price").value); //치돈 금액 가져오기
+      console.log("치돈 금액 : " + cheesPorkCutlet * count);
+
+      var paymentElement = document.getElementById("payment"); //요소 가져옴
+      console.log(paymentElement);
+      paymentElement.value = cheesPorkCutlet * count; //납부 금액 입력
+      //2. 치즈돈까스 5개이상 주문못하게 하기
+      if (count >= 5) {
+        //주문 수량이 5개 이상이면?
+        // alert("죄송합니다. 고객님.. 치즈돈까스는 5개미만으로 주문해주세요.");
+
+        //팝업창 나오게 하기
+        var popupElements = document.getElementsByClassName("popup")[0]; //팝업창 요소 가져오기
+        popupElements.style.display = "block"; //팝업창 보이게 하기
+      }
+    }
+  </script>
+</html>

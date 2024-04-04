@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .red-box {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        border: 1px solid black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="red-box">첫번째 박스</div>
+    <div class="red-box">두번째 박스</div>
+    <!-- class 이름은 중복이 가능
+        id 이름은 중복 불가능
+    -->
+    <div id="redbox" class="red-box">세번째 박스</div>
+  </body>
+  <script>
+    // javascript를 이용해서 html를 직접 제어 해보겠습니다.
+    // HTML == DOM(document)
+    // . : 접근
+    /*
+    getElementsByClassName
+    get : 얻다
+    Element : 요소들
+    By : ~ 로
+    ClassName : 클래스 이름
+    */
+    var elemnet = document.getElementsByClassName("red-box")[0]; //첫번째 박스 html
+    console.log(elemnet); //div 출력
+    /*
+        background-color : 케밥 표기법(kebab 표기)
+        backgroundColor : 카멜(낙타)표기법(camel 표기)
+    */
+    elemnet.style.backgroundColor = "green";
+    console.log(elemnet.style); //해당 요소 css 출력하기
+    //명사와 명사가 합쳐질 때, 두번째 명사 첫단어는 대문자로 표기한다.(약속)
+    //축구선수라는 단어가 있다고 가정, 축구(명사) + 선수(명사) = soccerPlayer (*카멜표기법)
+
+    elemnet.style.height = "300px";
+    elemnet.style.marginTop = "50px";
+
+    //Quiz
+    //2번째 박스를 핑크색으로 수정하고 높이 300px, 넓이 300px로 수정하시오.
+
+    var elemnet = document.getElementsByClassName("red-box")[1]; //두번째 박스
+    elemnet.style.backgroundColor = "pink";
+    elemnet.style.height = "300px";
+    elemnet.style.width = "300px";
+
+    //ID이름으로 HTML요소 가져오기
+    var elemnet3 = document.getElementById('redbox');
+    console.log(elemnet3);
+    elemnet3.style.backgroundColor = 'black';
+  </script>
+</html>
