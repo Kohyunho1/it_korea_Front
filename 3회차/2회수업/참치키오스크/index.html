@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상원참치</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .footer .active {
+        background-color: #ececec;
+        color: black;
+      }
+      .popup {
+        display: none;
+        /* border: 1px solid black; */
+        background-color: black;
+        color: #fff;
+        width: 300px;
+        height: 100px;
+        position: absolute;
+        top: 50%;
+        left: 40%;
+      }
+      .popup button {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="banner"></div>
+        <div class="nav">
+          <ul>
+            <li>전체 메뉴</li>
+            <li>오늘의 메뉴</li>
+            <li>베스트 메뉴</li>
+          </ul>
+        </div>
+      </div>
+      <div class="section">
+        <div class="menu-wrapper">
+          <div class="menu">
+            <img src="image/img_con01.jpg" />
+            <div class="menu-info">
+              <h6>참다랑어 뱃살</h6>
+              <p>숙성 : <span>8일 숙성</span></p>
+              <p>가격 : <span>22,000</span></p>
+              <a onclick="selectMenu(22000)" href="javascript:void(0);">담기</a>
+            </div>
+          </div>
+          <div class="menu">
+            <img src="image/img_con02.jpg" />
+            <div class="menu-info">
+              <h6>참다랑어 뱃살</h6>
+              <p>숙성 : <span>2일 숙성</span></p>
+              <p>가격 : <span>10,000</span></p>
+              <a onclick="selectMenu(10000)" href="javascript:void(0);">담기</a>
+            </div>
+          </div>
+          <div class="menu">
+            <img src="image/img_con03.jpg" />
+            <div class="menu-info">
+              <h6>참다랑어 등살</h6>
+              <p>숙성 : <span>3일 숙성</span></p>
+              <p>가격 : <span>12,000</span></p>
+              <a onclick="selectMenu(12000)" href="javascript:void(0);">담기</a>
+            </div>
+          </div>
+          <div class="menu">
+            <img src="image/img_con04.jpg" />
+            <div class="menu-info">
+              <h6>참다랑어 뱃살</h6>
+              <p>숙성 : <span>5일 숙성</span></p>
+              <p>가격 : <span>16,000</span></p>
+              <a onclick="selectMenu(16000)" href="javascript:void(0);">담기</a>
+            </div>
+          </div>
+          <div class="menu">
+            <img src="image/img_con06.jpg" />
+            <div class="menu-info">
+              <h6>참다랑어 스페셜 세트</h6>
+              <p>숙성 : <span>5일 숙성</span></p>
+              <p>가격 : <span>32,000</span></p>
+              <a href="javascript:void(0);" style="color: red" onclick="soldout()">품절</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="order">
+          <button type="button" id="order" onclick="pay()">결제하기</button>
+          <p>총 주문 금액 : <span id="totalMoney">0</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="popup">
+      <h3>해당 상품은 품절입니다.</h3>
+      <button onclick="popupClose()">팝업창 닫기</button>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function selectMenu(money) {
+        console.log("참치 금액 : " + money);
+        //클릭한 금액 -> 총 주문 금액에 표시되게 만들기
+        //Number() : 숫자로 형변환 해주는 이벤트
+        let total2 = (document.querySelector("#totalMoney").innerHTML = (
+          Number(document.querySelector("#totalMoney").innerHTML) + Number(money)
+        ).toLocaleString());
+        total2 = total2.replaceAll(".", "");
+
+        console.log(total2);
+        /*
+          숙제 1번. Nan처리 해결하기 Hint) 수업시간에 배운 replaceAll 활용
+          숙제 2번. soldout() 눌렀을 때 alert이 아닌 팝업창(새로운 div) 띄우기 hint css position absolute
+          단, 디자인은 심플하게 해도 상관없음! 팝업창 닫기 기능 있어야 함
+          숙제 3번. 결제하기 버튼 눌렀을 때 alert 으로 이번 달은 행사 기간입니다. 띄우기
+          총 주문 금액엔 5%가 할인된 금액이 보여진다.
+        */
+
+        //10만원 이상 구매 시
+        //문제 1. 1인 10만원 이상 구매할 수 없습니다. alert 창 띄우기
+        let total = Number(document.querySelector("#totalMoney").innerHTML);
+        if (total >= 100000) {
+          alert("1인 10만원 이상 구매할 수 없습니다!");
+          document.querySelector("#totalMoney").innerHTML = total - money;
+
+          //1. css 버튼색깔 변경 -> active 클래스 추가
+          document.querySelector("#order").classList.add("active");
+          //2. 버튼 설정 변경
+          //set : 세팅하다
+          document.querySelector("#order").setAttribute("disabled", "disabled");
+          return false; //함수 실행 중단
+        }
+        //숙제 1번. Nan처리 해결하기 Hint) 수업시간에 배운 replaceAll 활용
+        console.log(typeof total);
+        console.log(typeof money.toLocaleString());
+      }
+
+      //숙제 2번. soldout() 눌렀을 때 alert이 아닌 팝업창(새로운 div) 띄우기 hint css position absolute
+      //단, 디자인은 심플하게 해도 상관없음! 팝업창 닫기 기능 있어야 함
+      function popupClose() {
+        let popupElements = document.getElementsByClassName("popup")[0];
+        popupElements.style.display = "none";
+      }
+      function soldout() {
+        let popupElements = document.getElementsByClassName("popup")[0];
+        popupElements.style.display = "block";
+      }
+
+      //숙제 3번. 결제하기 버튼 눌렀을 때 alert 으로 이번 달은 행사 기간입니다. 띄우기
+      //총 주문 금액엔 5%가 할인된 금액이 보여진다.
+      function pay() {
+        alert("이번 달은 행사 기간입니다!");
+        let total = Number(document.querySelector("#totalMoney").innerHTML);
+        document.querySelector("#totalMoney").innerHTML = total * 0.95;
+        return false;
+      }
+    </script>
+  </body>
+</html>
