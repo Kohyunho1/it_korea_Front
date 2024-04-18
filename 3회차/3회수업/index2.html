@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .todo-wrapper {
+        margin: 10px auto;
+        border: 1px solid black;
+        width: 300px;
+      }
+      .todo-body {
+        margin-top: 20px;
+      }
+      .todo {
+        display: flex;
+        justify-content: space-around;
+      }
+      .completed {
+        color: black;
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="todo-wrapper">
+      <input id="today" type="text" placeholder="할일 입력.." />
+      <button onclick="add()">할일 추가</button>
+      <div id="todo-list" class="todo-body">
+        <!-- <div id="todo '+count+'" class="todo">
+          <p class="today1">낮잠자기</p>
+          <button class="suc" onclick="doTask(this)">완료</button>
+          <button onclick="delTask(this)">삭제</button>
+        </div> -->
+      </div>
+    </div>
+  </body>
+  <script>
+    let count = 0;
+    //할일 추가
+    function add() {
+      let input = document.querySelector("#today").value;
+      console.log(input);
+      let html =
+        '<div id="todo' +
+        count +
+        '" class="todo"><p class="today1">' +
+        input +
+        '</p><button class="suc" onclick="doTask(this)">완료</button><button onclick="delTask(this)">삭제</button></div>';
+      document.querySelector("#todo-list").innerHTML += html;
+      ++count;
+      //할일 제한
+      let len = document.querySelector("#todo-list").children.length;
+      if (len > 10) {
+        alert("할일이 너무 많아요.");
+        return false;
+      }
+    }
+    //할일 완료
+    function doTask(elements) {
+      let id = elements.parentNode.id;
+      document.querySelector("#" + id + " .today1").className = "completed";
+      document.querySelector("#" + id + " .suc").style.display = "none";
+    }
+    //할일 삭제
+    function delTask(elements) {
+      let id = elements.parentNode.id;
+      document.querySelector("#" + id).style.display = "none";
+    }
+  </script>
+</html>

@@ -95,7 +95,7 @@
         </div>
       </div>
     </div>
-    <div class="popup">
+    <div id="pop" class="popup">
       <h3>해당 상품은 품절입니다.</h3>
       <button onclick="popupClose()">팝업창 닫기</button>
     </div>
@@ -109,12 +109,9 @@
         console.log("참치 금액 : " + money);
         //클릭한 금액 -> 총 주문 금액에 표시되게 만들기
         //Number() : 숫자로 형변환 해주는 이벤트
-        let total2 = (document.querySelector("#totalMoney").innerHTML = (
-          Number(document.querySelector("#totalMoney").innerHTML) + Number(money)
-        ).toLocaleString());
-        total2 = total2.replaceAll(".", "");
-
-        console.log(total2);
+        let totalMoney = document.querySelector("#totalMoney").innerHTML;
+        totalMoney = totalMoney.replaceAll(",", ""); //replace로 콤마 없애기
+        document.querySelector("#totalMoney").innerHTML = (Number(totalMoney) + Number(money)).toLocaleString();
         /*
           숙제 1번. Nan처리 해결하기 Hint) 수업시간에 배운 replaceAll 활용
           숙제 2번. soldout() 눌렀을 때 alert이 아닌 팝업창(새로운 div) 띄우기 hint css position absolute
@@ -137,19 +134,16 @@
           document.querySelector("#order").setAttribute("disabled", "disabled");
           return false; //함수 실행 중단
         }
-        //숙제 1번. Nan처리 해결하기 Hint) 수업시간에 배운 replaceAll 활용
-        console.log(typeof total);
-        console.log(typeof money.toLocaleString());
       }
 
       //숙제 2번. soldout() 눌렀을 때 alert이 아닌 팝업창(새로운 div) 띄우기 hint css position absolute
       //단, 디자인은 심플하게 해도 상관없음! 팝업창 닫기 기능 있어야 함
       function popupClose() {
-        let popupElements = document.getElementsByClassName("popup")[0];
+        let popupElements = document.querySelector("#pop");
         popupElements.style.display = "none";
       }
       function soldout() {
-        let popupElements = document.getElementsByClassName("popup")[0];
+        let popupElements = document.querySelector("#pop");
         popupElements.style.display = "block";
       }
 
