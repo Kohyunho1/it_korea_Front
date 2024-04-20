@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    let emailList = "about@gmail.com,you@naver.com,me@gmail.com";
+    //원하는 결과는 각 사용자 이메일 아이디만 얻고 싶어요. => about,you,me
+    //spilt을 이용해서 가져올 수 있다.
+    let emailArray = emailList.split(",");
+    //console.log(emailArray);
+    //console.log(emailArray[1]); // --> you@naver.com
+
+    emailArray.forEach((e) => {
+      console.log(e);
+      let userId = e.split("@")[0];
+      console.log("userId : " + userId);
+    });
+
+    let address = "대전광역시 서구 둔산동 갤러리아타임월드, 24451";
+    //문제
+    //1. 우편번호 출력하기
+    //2. 둔산동만 나오게 출력하기
+    let addressNumber = address.split(",")[1];
+    console.log(addressNumber);
+    let dunsan = address.split(" ")[2]; //공백으로도 찾을 수 있다.
+    console.log(dunsan);
+    //전화번호 뒷 4자리 제외 *****로 처리하기
+    //ex) 01015771577 -> *******1577
+    //문자열 이용해서 풀 것
+    let phoneNumber = "01040401577";
+    const EXCEPTION_LEN = 4; //4자리 제외
+    let starCount = 0; //몇개 별을 찍어줄지 구하기
+    starCount = phoneNumber.length - EXCEPTION_LEN;
+    let star = "";
+    for (let i = 0; i < starCount; i++) {
+      star += "*";
+    }
+    //뒷자리 번호
+    let lastNumber = phoneNumber.substring(starCount, starCount + EXCEPTION_LEN);
+    phoneNumber = star + lastNumber;
+    console.log("최종 연락처 : " + phoneNumber);
+
+    //자주 사용하는 기타 메소드
+    //정렬
+    const months = ["March", "Jan", "Feb", "Dec"];
+    months.sort(); //배열 정렬
+    console.log(months);
+    const array = [3, 1, 2, 4, 0];
+    array.sort(); //배열 정렬
+    console.log(array);
+  </script>
+</html>

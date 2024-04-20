@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    //json : 배열처럼 데이터를 담는 형태
+    //json과 배열은 한번에 여러 데이터를 받을 수 있다.
+    var array = []; //배열 표기법
+    var jsonData = {}; //json
+    //json은 key(왼쪽)와 value(오른쪽)로 구성되어 있음.
+    //key는 중복이 불가능함.
+    jsonData = { food: "치킨", food1: "지코바", food2: "굽네치킨" };
+    //배열 같은 경우엔 출력할 때 [0] <-
+    console.log(jsonData.food1); //json은 key를 이용해서 value를 출력한다.
+    //지코바, 굽네치킨 출력하기
+    var student = { name: "홍길동", age: 17 };
+    //나이 출력하기
+    console.log(student.age);
+    var age = student.age; //json에 있는 값 변수에 대입하기
+    if (age < 19) {
+      console.log("청소년에게는 술,담배를 판매할 수 없습니다.");
+    }
+
+    var score = { a: 10, b: 20, c: 30 };
+    //문제 a ~ c까지 숫자 총합 구하기
+    //9시에 시작할께요~!
+
+    //json이 실무에서는 배열안에 포함되서 사용해요
+
+    var array = [
+      { name: "홍길동", age: 17 },
+      { name: "김길동", age: 27 },
+      { name: "박길동", age: 11 },
+    ];
+    console.log(array[0].name);
+
+    //문제. 김길동이는 27, 반복문을 이용해서 20살 이상 학생이름 출력
+    for (var i = 0; i < array.length; i++) {
+      //console.log(array[i].age);
+      var age = array[i].age;
+      if (age >= 20) {
+        console.log("성인 : " + array[i].name);
+      }
+    }
+    //des : 목적지, createAt : 여행날짜
+    var travle = [
+      { des: "강릉", createAt: "2024-04-19" },
+      { des: "부산", createAt: "2024-04-17" },
+      { des: "서울", createAt: "2024-04-01" },
+      { des: "서울", createAt: "2024-04-02" },
+    ];
+    //서울 여행을 총 몇번 갔는지 카운팅 하기
+    //배열이 있으면 -> for
+    var count = 0;
+    for (var i = 0; i < travle.length; i++) {
+      //목적지 출력하기
+      var des = travle[i].des; //목적지 변수에 대입하기
+      if (des == "서울") {
+        ++count;
+      }
+      //강릉 여행날짜를 출력하시오.
+    }
+    console.log("총" + count + " 번 다녀왔습니다.");
+  </script>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    /*
+          name : 영화제목
+          rank : 관객 수 순위
+          createdAt : 개봉 날짜
+          salesRevenue : 판매액
+          attendance : 관객수 */
+
+    //게임개발자, 네트워크개발자, 프론트개발자, 백엔드개발자던, AI json 공통어
+    //key와 value 구성 ===> key는 중복될 수 없다. value 중복 가능
+    const movies = [
+      {
+        name: "명량",
+        rank: 1,
+        createdAt: "2014-07-30",
+        salesRevenue: 135748398910,
+        attendance: 17613682,
+      },
+      {
+        name: "극한직업",
+        rank: 2,
+        createdAt: "2019-01-23",
+        salesRevenue: 139647979516,
+        attendance: 16264944,
+      },
+      {
+        name: "신과함께-죄와 벌",
+        rank: 3,
+        createdAt: "2014-07-30",
+        salesRevenue: 135748398910,
+        attendance: 17613682,
+      },
+      {
+        name: "국제시장",
+        rank: 4,
+        createdAt: "2014-07-30",
+        salesRevenue: 110913469630,
+        attendance: 14257115,
+      },
+      {
+        name: "어벤져스: 엔드게임",
+        rank: 5,
+        createdAt: "2019-04-24",
+        salesRevenue: 122182694160,
+        attendance: 13934592,
+      },
+    ];
+    //문제 1번. 영화 이름, 개봉날짜, 순위만 출력하시오.
+    movies[0].name; //배열안에 있는 json 접근하는 방법
+    for (let i = 0; i < movies.length; i++) {
+      //일반 for문
+      //console.log(movies[i].name);
+      //console.log(movies[i].createdAt);
+      //console.log(movies[i].rank);
+    }
+
+    movies.forEach((e) => {
+      console.log("for each를 이용해서 출력하기");
+      console.log(e.name);
+      console.log(e.createdAt);
+      console.log(e.rank);
+    }); //자바스크립트에서 자주 사용하는 for문
+    //foreach는 알아서 배열 처음부터 끝까지 조회합니다.
+
+    //2번  영화 명량과 어벤져스의 판매액 합산을 구하시오.
+    //foreach로 풀어보겠습니다.
+    let sum = 0;
+    movies.forEach((e) => {
+      if (e.name === "명량" || e.name === "어벤져스: 엔드게임") {
+        sum += e.salesRevenue;
+      }
+    });
+    console.log(sum);
+    //3번하고 4번은 넘어가겠습니다. 시간날 때 foreach로 풀어보세요!
+
+    //5번 개봉날짜가 가장 최근인 영화의 이름과 개봉일 순위를 구하시오.
+    var max = 0;
+    var temp = 0;
+    movies.forEach((e, index) => {
+      //e는 배열안에 값을 의미하고 index는 배열순서를 의미함.
+      //***** 실무에서 날짜를 비교할 때 항상 숫자로 먼저 변환해야 한다.
+      // 시간관련된 함수를 사용하면 해결되긴 하지만, 함수를 사용하지 않을 때는 위에 조건을 지켜야 한다.
+      let time = new Date(e.createdAt).getTime(); //날짜 -> 숫자 변환
+      if (max < time) {
+        max = time;
+        temp = index;
+      }
+    });
+    console.log("영화 이름 : " + movies[temp].name);
+    console.log("영화 개봉날짜 : " + movies[temp].createdAt);
+    console.log("영화 누적관객 순위 : " + movies[temp].rank);
+  </script>
+</html>

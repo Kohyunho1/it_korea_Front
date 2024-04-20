@@ -122,10 +122,10 @@
 
         //10만원 이상 구매 시
         //문제 1. 1인 10만원 이상 구매할 수 없습니다. alert 창 띄우기
-        let total = Number(document.querySelector("#totalMoney").innerHTML);
-        if (total >= 100000) {
+        let total = document.querySelector("#totalMoney").innerHTML;
+        if (totalMoney >= 100000) {
           alert("1인 10만원 이상 구매할 수 없습니다!");
-          document.querySelector("#totalMoney").innerHTML = total - money;
+          document.querySelector("#totalMoney").innerHTML = totalMoney - money;
 
           //1. css 버튼색깔 변경 -> active 클래스 추가
           document.querySelector("#order").classList.add("active");
@@ -151,8 +151,9 @@
       //총 주문 금액엔 5%가 할인된 금액이 보여진다.
       function pay() {
         alert("이번 달은 행사 기간입니다!");
-        let total = Number(document.querySelector("#totalMoney").innerHTML);
-        document.querySelector("#totalMoney").innerHTML = total * 0.95;
+        let total = document.querySelector("#totalMoney").innerHTML;
+        total = total.replaceAll(",", "");
+        document.querySelector("#totalMoney").innerHTML = (total * 0.95).toLocaleString();
         return false;
       }
     </script>
