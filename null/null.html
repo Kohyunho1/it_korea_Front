@@ -7,10 +7,10 @@
   </head>
   <body></body>
   <script>
-    var str = "americano";
-    result = str.includes("A");
-    console.log("result : " + result);
-    result = str.includes("f");
-    console.log("result : " + result);
+    //3. ***** split() : 지정한 구분자를 이용하여 여러 개의 문자열로 나눈다.
+    var str = "americano,latte,moca";
+    // 위 같은 문자열이 주어질 때, 아메리카노만 출력하고 싶다.
+    var resultArray = str.split(","); //배열로 리턴을 한다.
+    console.log(resultArray[0]); //아메리카노만 출력
   </script>
 </html>
