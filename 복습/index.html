@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    let array = [10, 5]; //배열 -> index로 구성
+    //name이 key, 홍길동 value
+    let json = { name: "홍길동" }; //json -> json은 key와 value로 구성되어있다.
+
+    //배열 출력
+    console.log(array[0]); //10출력
+    console.log(array[1]); //5출력
+
+    //json 출력
+    console.log(json.name); //json은 key를 이용해서 출력한다.
+
+    let arrayJson = [{ name: "김길동" }, { name: "박길동" }];
+    //for문을 이용해서 김길동만 출력할 것
+    for (var i = 0; i < arrayJson.length; i++) {
+      if (arrayJson[i].name == "김길동") {
+        console.log(arrayJson[i].name);
+      }
+    }
+    //향상된 for문 혹은 map
+    // arrayJson.forEach((e) => {
+    //   if (e.name == "김길동") {
+    //     console.log(e.name);
+    //   }
+    // });
+
+    arrayJson.map((e) => {
+      console.log(e.name);
+    });
+  </script>
+</html>
